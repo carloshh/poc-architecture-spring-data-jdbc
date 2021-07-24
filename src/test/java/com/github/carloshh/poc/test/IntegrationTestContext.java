@@ -13,8 +13,7 @@ public abstract class IntegrationTestContext {
     private static final MySQLContainer<?> mysqlUser = new MySQLContainer<>("mysql:8.0.25")
             .withDatabaseName("database-user")
             .withUsername("database-user-username")
-            .withPassword("database-user-password")
-            .withInitScript("db/schema/init-user-database.sql");
+            .withPassword("database-user-password");
 
     @Container
     private static final MySQLContainer<?> mysqlUserDetails = new MySQLContainer<>("mysql:8.0.25")

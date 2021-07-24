@@ -1,4 +1,4 @@
-package com.github.carloshh.poc.test;
+package com.github.carloshh.poc.config;
 
 import com.github.carloshh.poc.repository.details.UserDetailsRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
