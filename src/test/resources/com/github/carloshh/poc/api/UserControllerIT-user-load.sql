@@ -1,1 +1,1 @@
-INSERT INTO user (id, username) VALUES (null, 'test-user');
+INSERT INTO user_account (username) VALUES ('test-user');

@@ -16,7 +16,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
                 select
                     id, username
                 from
-                    user
+                    user_account
                 where
                     username = :username
             """

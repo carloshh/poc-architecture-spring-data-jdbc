@@ -1,10 +1,13 @@
-create table user
+create table user_account
 (
-    id       int auto_increment,
-    username varchar(255) not null,
-    constraint user_id_uindex
-        unique (id)
-);
+    id   int identity
+        constraint user_pk
+            primary key nonclustered,
+    username varchar(256) not null
+)
+go
 
-alter table user
-    add primary key (id);
+create unique index user_id_uindex
+    on user_account (id)
+go
+
