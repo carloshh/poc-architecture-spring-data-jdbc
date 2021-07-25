@@ -1,3 +1,5 @@
+-- run with user sa
+
 create database [java-apps];
 go
 use [java-apps];

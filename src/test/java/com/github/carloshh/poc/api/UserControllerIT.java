@@ -67,7 +67,7 @@ class UserControllerIT extends IntegrationTestContext {
 
         assertThat(userRepository.count()).isEqualTo(1);
         assertThat(user.username()).isEqualTo(USER_USERNAME);
-        assertThat(userDetails.email()).isEqualTo(USER_EMAIL);
+        assertThat(userDetails.getEmail()).isEqualTo(USER_EMAIL);
     }
 
 }

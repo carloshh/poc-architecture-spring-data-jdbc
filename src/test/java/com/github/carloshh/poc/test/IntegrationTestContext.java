@@ -3,7 +3,7 @@ package com.github.carloshh.poc.test;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MSSQLServerContainer;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.OracleContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -15,10 +15,7 @@ public abstract class IntegrationTestContext {
             .acceptLicense();
 
     @Container
-    private static final MySQLContainer<?> mysqlUserDetails = new MySQLContainer<>("mysql:8.0.25")
-            .withDatabaseName("database-details")
-            .withUsername("database-details-username")
-            .withPassword("database-details-password")
+    private static final OracleContainer oracle = new OracleContainer("oracleinanutshell/oracle-xe-11g:latest")
             .withInitScript("db/schema/init-details-database.sql");
 
     @DynamicPropertySource
@@ -27,9 +24,9 @@ public abstract class IntegrationTestContext {
         registry.add("spring.datasource.user.username", mssqlserver::getUsername);
         registry.add("spring.datasource.user.password", mssqlserver::getPassword);
 
-        registry.add("spring.datasource.details.jdbcUrl", mysqlUserDetails::getJdbcUrl);
-        registry.add("spring.datasource.details.username", mysqlUserDetails::getUsername);
-        registry.add("spring.datasource.details.password", mysqlUserDetails::getPassword);
+        registry.add("spring.datasource.details.jdbcUrl", oracle::getJdbcUrl);
+        registry.add("spring.datasource.details.username", oracle::getUsername);
+        registry.add("spring.datasource.details.password", oracle::getPassword);
     }
 
 }

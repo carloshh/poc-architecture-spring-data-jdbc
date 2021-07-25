@@ -26,7 +26,7 @@ public class UserService {
         var user = userRepository.save(new User(null, username));
         var userDetails = userDetailsRepository.save(new UserDetails(null, user.id(), email));
 
-        LOG.info("user={}, email={}", user, userDetails.email());
+        LOG.info("user={}, email={}", user, userDetails.getEmail());
         return user;
     }
 

@@ -11,19 +11,6 @@ services:
             SA_PASSWORD: PasswordO1
             MSSQL_PID: Express
 
-    user-details-database:
-        image: mysql:8.0.25
-        command: --default-authentication-plugin=mysql_native_password
-        ports:
-            - 3307:3306
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: database-details
-            MYSQL_USER: database-details-username
-            MYSQL_PASSWORD: database-details-password
-        volumes:
-            - "./scripts/schema.sql:/docker-entrypoint-initdb.d/1.sql"
-
     oracle:
         image: oracleinanutshell/oracle-xe-11g:latest
         ports:
